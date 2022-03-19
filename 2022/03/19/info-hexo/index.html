@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Hexo | info-hexo </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+  <meta name="generator" content="Hexo 6.1.0"></head>
+  <body>
+
+   <script>window.__INITIAL_STATE__ = {"page":{"title":"info-hexo","path":"2022/03/19/info-hexo/"},"data":{},"config":{"timezone":"","root":"/","time_format":"HH:mm:ss","theme":"doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="HEXO-the-Blog-tool"><a href="#HEXO-the-Blog-tool" class="headerlink" title="HEXO - the Blog tool"></a>HEXO - the Blog tool</h1><p>[toc]</p>
+<h2 id="Base-info-and-Installation"><a href="#Base-info-and-Installation" class="headerlink" title="Base info and Installation"></a>Base info and Installation</h2><p>Website: <a target="_blank" rel="noopener" href="https://hexo.io/">https://hexo.io</a></p>
+<p>Documentation: <a target="_blank" rel="noopener" href="https://hexo.io/docs">https://hexo.io/docs</a></p>
+<p>Requirements of Installation:</p>
+<ul>
+<li>Node.js</li>
+<li>Git: <code>sudo apt install git-core</code></li>
+</ul>
+<p>Installation:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install hexo-cli -g</span><br><span class="line">$ hexo init blog</span><br><span class="line">$ cd blog</span><br><span class="line">$ sudo npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>After the above command, you should be able to see:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">INFO Validating config</span><br><span class="line">INFO Start processing</span><br><span class="line">INFO Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop</span><br></pre></td></tr></table></figure>
+
+<h2 id="Using-HEXO"><a href="#Using-HEXO" class="headerlink" title="Using HEXO"></a>Using HEXO</h2><h3 id="Command-init"><a href="#Command-init" class="headerlink" title="Command: init"></a>Command: init</h3><p><code>$ hexo init [folder]</code></p>
+<p>This command initializes a website. If no <code>folder</code> is provided, Hexo will set up a website in the current directory.</p>
+<h3 id="Command-new"><a href="#Command-new" class="headerlink" title="Command: new"></a>Command: new</h3><p><code>$ hexo new [layout] &lt;title&gt;</code></p>
+<p>Create a new article. If no <code>layout</code> is provided, Hexo will use the <code>default_layout</code> from __config.yml. If the <code>title</code> contains spaces, surround it with quotation marks.</p>
+<p>Options includes</p>
+<ul>
+<li><code>-p</code>, <code>--path</code>: Post path. Customize the path of the post.</li>
+<li><code>-r</code>, <code>--replace</code>: Replace the current post if existed.</li>
+<li><code>-s</code>, <code>--slug</code>: Post slug. Customize the URL of the post.</li>
+</ul>
+<h3 id="Command-generate"><a href="#Command-generate" class="headerlink" title="Command: generate"></a>Command: generate</h3><p><code>$ hexo generate</code></p>
+<p>Generates stataic files</p>
+<p>Options are</p>
+<ul>
+<li><code>-d</code>, <code>--deploy</code>: Deploy after generation finishes</li>
+<li><code>-w</code>, <code>--watch</code>: Watch file changes</li>
+<li><code>-b</code>, <code>--bail</code>: Raise an error if any unhandled exception is throw during generation</li>
+<li><code>-f</code>, <code>--force</code>: Force regenerate</li>
+<li><code>-c</code>, <code>--concurrency</code>: Maximum number of files to be generated in parallel. Default is infinity</li>
+</ul>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/script/doc.js"></script>
+
+    
+
+  </body>
+</html>
