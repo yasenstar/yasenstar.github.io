@@ -6,13 +6,15 @@
   
   <title>Git Usage | YasenStar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="article">
+  <meta name="description" content="Export GIT LOG into an CSV FileGo to your GIT repo folder – In Linux, run  1git log --oneline | tr &quot;\r&quot; &quot; &gt; ~&#x2F;gitlog.csv  In Windows, run  1git log --oneline &gt; c:&#x2F;temp&#x2F;gitlog.csv">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Git Usage">
 <meta property="og:url" content="https://yasenstar.github.io/2022/03/21/Git-Usage/index.html">
 <meta property="og:site_name" content="YasenStar">
+<meta property="og:description" content="Export GIT LOG into an CSV FileGo to your GIT repo folder – In Linux, run  1git log --oneline | tr &quot;\r&quot; &quot; &gt; ~&#x2F;gitlog.csv  In Windows, run  1git log --oneline &gt; c:&#x2F;temp&#x2F;gitlog.csv">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-22T00:11:22.000Z">
-<meta property="article:modified_time" content="2022-03-22T00:11:22.449Z">
+<meta property="article:modified_time" content="2022-03-22T00:34:42.877Z">
 <meta property="article:author" content="Yasen Zhao">
 <meta name="twitter:card" content="summary">
   
@@ -97,11 +99,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="Export-GIT-LOG-into-an-CSV-File"><a href="#Export-GIT-LOG-into-an-CSV-File" class="headerlink" title="Export GIT LOG into an CSV File"></a>Export GIT LOG into an CSV File</h2><p>Go to your GIT repo folder –</p>
+<p>In Linux, run </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline | tr &quot;\r&quot; &quot; &gt; ~/gitlog.csv</span><br></pre></td></tr></table></figure>
+
+<p>In Windows, run </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline &gt; c:/temp/gitlog.csv</span><br></pre></td></tr></table></figure>
+
+<p>GIT also gives your the control on how to format the log output using <code>pretty</code> option, like below:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --pretty=format:%h,%an,%ae,%ad,%s</span><br></pre></td></tr></table></figure>
+
+<p>Note: <code>--pretty</code> and <code>--oneline</code> cannot be used at the same time.</p>
+<p>This prints the log in the format of (hash [abbreviated], author name, author email, author date, subject)</p>
+<p>To see the full list of format options: <code>git help log</code></p>
+<p>Some more samples:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --no-merges --since=&#x27;mm-dd-yyyy&#x27; --pretty=format:%h,%as,%ae,%ad,%s &gt; c:\dev\history.csv</span><br></pre></td></tr></table></figure>
+
+<p>You can also quote the values directly in the format - <code>git log --pretty=format:&#39;&quot;%h&quot;,&quot;%an&quot;,&quot;%ae%,&quot;ad&quot;,&quot;$s&quot;&#39; --date=iso-strict</code>, so it’s clear when there’re commas in the memo</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl11dvdh00000sd0gc1bz7voc" data-title="Git Usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl11enby000016v0geay7fjlj" data-title="Git Usage" class="article-share-link">Share</a>
       
       
       

@@ -97,11 +97,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="Export-GIT-LOG-into-an-CSV-File"><a href="#Export-GIT-LOG-into-an-CSV-File" class="headerlink" title="Export GIT LOG into an CSV File"></a>Export GIT LOG into an CSV File</h2><p>Go to your GIT repo folder –</p>
+<p>In Linux, run </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline | tr &quot;\r&quot; &quot; &gt; ~/gitlog.csv</span><br></pre></td></tr></table></figure>
+
+<p>In Windows, run </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline &gt; c:/temp/gitlog.csv</span><br></pre></td></tr></table></figure>
+
+<p>GIT also gives your the control on how to format the log output using <code>pretty</code> option, like below:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --pretty=format:%h,%an,%ae,%ad,%s</span><br></pre></td></tr></table></figure>
+
+<p>Note: <code>--pretty</code> and <code>--oneline</code> cannot be used at the same time.</p>
+<p>This prints the log in the format of (hash [abbreviated], author name, author email, author date, subject)</p>
+<p>To see the full list of format options: <code>git help log</code></p>
+<p>Some more samples:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --no-merges --since=&#x27;mm-dd-yyyy&#x27; --pretty=format:%h,%as,%ae,%ad,%s &gt; c:\dev\history.csv</span><br></pre></td></tr></table></figure>
+
+<p>You can also quote the values directly in the format - <code>git log --pretty=format:&#39;&quot;%h&quot;,&quot;%an&quot;,&quot;%ae%,&quot;ad&quot;,&quot;$s&quot;&#39; --date=iso-strict</code>, so it’s clear when there’re commas in the memo</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl11dvdh00000sd0gc1bz7voc" data-title="Git Usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl11enby000016v0geay7fjlj" data-title="Git Usage" class="article-share-link">Share</a>
       
       
       
@@ -153,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl1026l4b0000ug0gexn5glis" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl11enbxt00006v0g93w1h7os" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
       
       
       
@@ -191,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl1026l4m0003ug0g2ji254fw" data-title="powerapps usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl11enby400046v0g62943u8o" data-title="powerapps usage" class="article-share-link">Share</a>
       
       
       
@@ -229,7 +246,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl1026l4n0004ug0g5mzo04pf" data-title="powerbi-usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl11enby500056v0g8c6zbx39" data-title="powerbi-usage" class="article-share-link">Share</a>
       
       
       
@@ -268,7 +285,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl1026l4o0005ug0ganew8h0w" data-title="tools" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl11enby600066v0ghk1yft24" data-title="tools" class="article-share-link">Share</a>
       
       
       
@@ -340,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl1026l4k0002ug0gf4ljhu9e" data-title="info-hexo" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl11enby300036v0g2zzoaktn" data-title="info-hexo" class="article-share-link">Share</a>
       
       
       
@@ -391,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl1026l4i0001ug0g50e94yy2" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl11enby200026v0g9a4y5w9r" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
