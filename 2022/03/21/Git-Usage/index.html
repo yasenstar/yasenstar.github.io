@@ -14,7 +14,7 @@
 <meta property="og:description" content="Export GIT LOG into an CSV FileGo to your GIT repo folder – In Linux, run  1git log --oneline | tr &quot;\r&quot; &quot; &gt; ~&#x2F;gitlog.csv  In Windows, run  1git log --oneline &gt; c:&#x2F;temp&#x2F;gitlog.csv">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-22T00:11:22.000Z">
-<meta property="article:modified_time" content="2022-03-22T00:34:42.877Z">
+<meta property="article:modified_time" content="2022-03-22T00:38:57.936Z">
 <meta property="article:author" content="Yasen Zhao">
 <meta name="twitter:card" content="summary">
   
@@ -115,7 +115,7 @@
 <p>Some more samples:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --no-merges --since=&#x27;mm-dd-yyyy&#x27; --pretty=format:%h,%as,%ae,%ad,%s &gt; c:\dev\history.csv</span><br></pre></td></tr></table></figure>
 
-<p>You can also quote the values directly in the format - <code>git log --pretty=format:&#39;&quot;%h&quot;,&quot;%an&quot;,&quot;%ae%,&quot;ad&quot;,&quot;$s&quot;&#39; --date=iso-strict</code>, so it’s clear when there’re commas in the memo</p>
+<p>You can also quote the values directly in the format - <code>git log --pretty=format:&#39;&quot;%h&quot;,&quot;%an&quot;,&quot;%ae&quot;,&quot;%ad&quot;,&quot;%s&quot;&#39; --date=iso-strict</code>, so it’s clear when there’re commas in the memo</p>
 
       
     </div>
