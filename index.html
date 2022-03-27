@@ -100,13 +100,36 @@
         <p>The purpose of this article is to show the practical way of analyzing IIS logs, and using those parsed results for analytical using.</p>
 <p>After installing the IIS Log Parser application, let’s assume in Windows OS PC, I’m now using below command to generate one CSV file for all of the traffic hits counted to the log file folder:</p>
 <p>The LogParser.exe (v2.2) is by default installed at <code>c:\Program Files (x86)\Log Parser 2.2\</code>, go to this folder then running below –</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LogParser.exe -i:W3C &quot;SELECT cs-uri-stem as Url, Count(*) As Hits FROM C:\Temp\W3SVC2\* GROUP BY cs-uri-stem ORDER BY Hits DESC&quot; -o:CSV &gt; c:\temp.csv</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LogParser.exe <span class="operator">-</span>i:W3C &quot;SELECT cs-uri-stem as Url, Count(*) As Hits FROM C:\Temp\W3SVC2\* GROUP BY cs-uri-stem ORDER BY Hits DESC&quot; <span class="operator">-</span>o:CSV <span class="operator">&gt;</span> c:\temp.csv</span><br></pre></td></tr></table></figure>
 
+<p>Thanks Carlos Aguilar, he gives very nice guides here <a target="_blank" rel="noopener" href="https://blogs.iis.net/carlosag/analyze-your-iis-log-files-favorite-log-parser-queries">https://blogs.iis.net/carlosag/analyze-your-iis-log-files-favorite-log-parser-queries</a>.</p>
+<p>The syntax is: <code>LogParse.exe -i:W3C &quot;Query-From-The-Table-Below&quot; -o:CSV &gt; &quot;destination CSV file path and name&quot;</code></p>
+<p>I’m digesting the useful queries here:</p>
+<table>
+<thead>
+<tr>
+<th>Purpose</th>
+<th>Query</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number of Hits per Client IP, including a Reverse DNS Lookup (SLOW)</td>
+<td><code>SELECT c-ip AS Machine, REVERSEDNA(c-ip) As Name, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Machine ORDER BY Hits DESC</code></td>
+</tr>
+<tr>
+<td>Top 25 File Types</td>
+<td><code>SELECT TOP 25 EXTRACT_EXTENSION(cs-uri-stem) As Extension, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Extension ORDER BY Hits DESC</code></td>
+</tr>
+<tr>
+<td>Top 25 URLs</td>
+<td>&#96;SELECT TOP 25 cs-uri-stem as Url, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1* GROUP BY cs-uri-stem ORDER BY Hits DESC</td>
+</tr>
+</tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19kdx250002960g8yzw2pgx" data-title="IIS Log Parser" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19kphsh0002c70g4klcfog3" data-title="IIS Log Parser" class="article-share-link">Share</a>
       
       
       
@@ -148,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/tool-youtube-dl/" data-id="cl19kdx450009960ghe8f0np5" data-title="tool_youtube-dl" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/tool-youtube-dl/" data-id="cl19kphug0009c70g7pfwabwe" data-title="tool_youtube-dl" class="article-share-link">Share</a>
       
       
       
@@ -186,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/good-sayings/" data-id="cl19kdx2a0003960gah4qfggi" data-title="good_sayings" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/good-sayings/" data-id="cl19kphsl0003c70g10ku4r79" data-title="good_sayings" class="article-share-link">Share</a>
       
       
       
@@ -244,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl19kdx1y0001960gad0pfie3" data-title="Git Usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl19kphsa0001c70gcio981j1" data-title="Git Usage" class="article-share-link">Share</a>
       
       
       
@@ -296,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl19kdx1a0000960gef2nhtuq" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl19kphrn0000c70g4rwd5nog" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
       
       
       
@@ -334,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl19kdx2l0006960g0qcocoz4" data-title="powerapps usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl19kphsx0006c70g7epe2xp5" data-title="powerapps usage" class="article-share-link">Share</a>
       
       
       
@@ -372,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl19kdx2p0007960ghfhl5xaj" data-title="powerbi-usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl19kpht10007c70ghd7k1gm6" data-title="powerbi-usage" class="article-share-link">Share</a>
       
       
       
@@ -411,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl19kdx2t0008960gaj3ihhn7" data-title="tools" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl19kpht50008c70ge1os9cin" data-title="tools" class="article-share-link">Share</a>
       
       
       
@@ -483,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl19kdx2i0005960ge04l3ith" data-title="info-hexo" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl19kphst0005c70gf3m11xq4" data-title="info-hexo" class="article-share-link">Share</a>
       
       
       
@@ -534,7 +557,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl19kdx2e0004960ghd2446fq" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl19kphsp0004c70gaagj7m4p" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
