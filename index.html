@@ -140,12 +140,16 @@
 <td>Extract Values from Query String (d and t) and use them for Aggregation</td>
 <td><code>SELECT TOP 25 EXTRACT_VALUE(cs-uri-query,&#39;d&#39;) as Query_D, EXTRACT_VALUE(cs-uri-query,&#39;t&#39;) as Query_T, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE Query_D IS NOT NULL GROUP By Query_D, Query_T ORDER BY Hits DESC</code></td>
 </tr>
+<tr>
+<td>Fine the Slowest 25 URLs (in average) in the site</td>
+<td><code>SELECT TOP 25 cs-uri-stem as URL, MAX(time-taken) AS Max, MIN(time-taken) AS Min, Avg(time-taken) As Average FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY URL ORDER BY Average DESC</code></td>
+</tr>
 </tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19l12240002ej0g0ckw0ka0" data-title="IIS Log Parser" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19nnkbi0002jz0gej3d3jfq" data-title="IIS Log Parser" class="article-share-link">Share</a>
       
       
       
@@ -187,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/tool-youtube-dl/" data-id="cl19l12410009ej0gdsiecqpk" data-title="tool_youtube-dl" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/tool-youtube-dl/" data-id="cl19nnkdg0009jz0g04ayh8bw" data-title="tool_youtube-dl" class="article-share-link">Share</a>
       
       
       
@@ -225,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/good-sayings/" data-id="cl19l12280003ej0g1m6nci7i" data-title="good_sayings" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/good-sayings/" data-id="cl19nnkbm0003jz0g8xkz630n" data-title="good_sayings" class="article-share-link">Share</a>
       
       
       
@@ -283,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl19l121x0001ej0g0pn22ger" data-title="Git Usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl19nnkbb0001jz0g568z2mwu" data-title="Git Usage" class="article-share-link">Share</a>
       
       
       
@@ -335,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl19l121a0000ej0g4rn5g6fj" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl19nnkao0000jz0g9exc8zu1" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
       
       
       
@@ -373,7 +377,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl19l122j0006ej0g0wfrdlrt" data-title="powerapps usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl19nnkby0006jz0g9v3u9pc4" data-title="powerapps usage" class="article-share-link">Share</a>
       
       
       
@@ -411,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl19l122n0007ej0gfozzcyk2" data-title="powerbi-usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl19nnkc10007jz0ghwvz5mz6" data-title="powerbi-usage" class="article-share-link">Share</a>
       
       
       
@@ -450,7 +454,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl19l122r0008ej0ghtqpbuz2" data-title="tools" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl19nnkc50008jz0g80jtazt2" data-title="tools" class="article-share-link">Share</a>
       
       
       
@@ -522,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl19l122g0005ej0g9g2k3qda" data-title="info-hexo" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl19nnkbu0005jz0g0dfpgeue" data-title="info-hexo" class="article-share-link">Share</a>
       
       
       
@@ -573,7 +577,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl19l122c0004ej0gezphfc77" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl19nnkbq0004jz0g3mod3yzs" data-title="Hello World" class="article-share-link">Share</a>
       
       
       

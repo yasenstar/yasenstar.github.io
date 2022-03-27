@@ -14,7 +14,7 @@
 <meta property="og:description" content="The purpose of this article is to show the practical way of analyzing IIS logs, and using those parsed results for analytical using. After installing the IIS Log Parser application, let’s assume in Wi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-27T17:31:41.000Z">
-<meta property="article:modified_time" content="2022-03-27T17:55:34.651Z">
+<meta property="article:modified_time" content="2022-03-27T17:57:38.962Z">
 <meta property="article:author" content="Yasen Zhao">
 <meta name="twitter:card" content="summary">
   
@@ -142,12 +142,16 @@
 <td>Extract Values from Query String (d and t) and use them for Aggregation</td>
 <td><code>SELECT TOP 25 EXTRACT_VALUE(cs-uri-query,&#39;d&#39;) as Query_D, EXTRACT_VALUE(cs-uri-query,&#39;t&#39;) as Query_T, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE Query_D IS NOT NULL GROUP By Query_D, Query_T ORDER BY Hits DESC</code></td>
 </tr>
+<tr>
+<td>Fine the Slowest 25 URLs (in average) in the site</td>
+<td><code>SELECT TOP 25 cs-uri-stem as URL, MAX(time-taken) AS Max, MIN(time-taken) AS Min, Avg(time-taken) As Average FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY URL ORDER BY Average DESC</code></td>
+</tr>
 </tbody></table>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19l12240002ej0g0ckw0ka0" data-title="IIS Log Parser" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19nnkbi0002jz0gej3d3jfq" data-title="IIS Log Parser" class="article-share-link">Share</a>
       
       
       
