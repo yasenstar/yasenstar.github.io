@@ -114,22 +114,38 @@
 </thead>
 <tbody><tr>
 <td>Number of Hits per Client IP, including a Reverse DNS Lookup (SLOW)</td>
-<td>&#96;&#96;&#96;</td>
+<td><code>SELECT c-ip AS Machine, REVERSEDNA(c-ip) As Name, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Machine ORDER BY Hits DESC</code></td>
 </tr>
 <tr>
-<td>SELECT c-ip AS Machine, REVERSEDNA(c-ip) As Name, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1* GROUP BY Machine ORDER BY Hits DESC</td>
-<td></td>
+<td>Top 25 File Types</td>
+<td><code>SELECT TOP 25 EXTRACT_EXTENSION(cs-uri-stem) As Extension, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Extension ORDER BY Hits DESC</code></td>
+</tr>
+<tr>
+<td>Top 25 URLs</td>
+<td><code>SELECT TOP 25 cs-uri-stem as Url, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY cs-uri-stem ORDER BY Hits DESC</code></td>
+</tr>
+<tr>
+<td>Number of hits per hour for the month of March</td>
+<td><code>SELECT QUANTIZE(TO_LOCALTIME(TO_TIMESTAMP(date, time)), 3600) AS Hour, COUNT(*) AS Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE date&gt;&#39;2022-03-01&#39; and date&lt;&#39;2022-04-01&#39; GROUP BY Hour</code></td>
+</tr>
+<tr>
+<td>Number of hits per Method (GET, POST, etc)</td>
+<td><code>SELECT cs-method As Method, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Method</code></td>
+</tr>
+<tr>
+<td>Number of requests made by user</td>
+<td><code>SELECT TOP 25 cs-username As User, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE User Is Not Null GROUP BY User</code></td>
+</tr>
+<tr>
+<td>Extract Values from Query String (d and t) and use them for Aggregation</td>
+<td><code>SELECT TOP 25 EXTRACT_VALUE(cs-uri-query,&#39;d&#39;) as Query_D, EXTRACT_VALUE(cs-uri-query,&#39;t&#39;) as Query_T, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE Query_D IS NOT NULL GROUP By Query_D, Query_T ORDER BY Hits DESC</code></td>
 </tr>
 </tbody></table>
-<pre><code class="|">| Top 25 File Types | `SELECT TOP 25 EXTRACT_EXTENSION(cs-uri-stem) As Extension, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Extension ORDER BY Hits DESC` |
-| Top 25 URLs | `SELECT TOP 25 cs-uri-stem as Url, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY cs-uri-stem ORDER BY Hits DESC` |
-| Number of hits per hour for the month of March | `SELECT QUANTIZE(TO_LOCALTIME(TO_TIMESTAMP(date, time)), 3600) AS Hour, COUNT(*) AS Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE date&gt;&#39;2022-03-01&#39; and date&lt;&#39;2022-04-01&#39; GROUP BY Hour` |
-</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19ktzw40002d70g62jb28s6" data-title="IIS Log Parser" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19l12240002ej0g0ckw0ka0" data-title="IIS Log Parser" class="article-share-link">Share</a>
       
       
       
@@ -171,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/tool-youtube-dl/" data-id="cl19ktzy20009d70gadpga1zz" data-title="tool_youtube-dl" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/tool-youtube-dl/" data-id="cl19l12410009ej0gdsiecqpk" data-title="tool_youtube-dl" class="article-share-link">Share</a>
       
       
       
@@ -209,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/good-sayings/" data-id="cl19ktzw90003d70g8oe76isk" data-title="good_sayings" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/good-sayings/" data-id="cl19l12280003ej0g1m6nci7i" data-title="good_sayings" class="article-share-link">Share</a>
       
       
       
@@ -267,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl19ktzvy0001d70gfp0h2dyu" data-title="Git Usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl19l121x0001ej0g0pn22ger" data-title="Git Usage" class="article-share-link">Share</a>
       
       
       
@@ -319,7 +335,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl19ktzvb0000d70g9dvb5qy2" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl19l121a0000ej0g4rn5g6fj" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
       
       
       
@@ -357,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl19ktzwk0006d70gac2x1y3d" data-title="powerapps usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl19l122j0006ej0g0wfrdlrt" data-title="powerapps usage" class="article-share-link">Share</a>
       
       
       
@@ -395,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl19ktzwo0007d70g84v085n1" data-title="powerbi-usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl19l122n0007ej0gfozzcyk2" data-title="powerbi-usage" class="article-share-link">Share</a>
       
       
       
@@ -434,7 +450,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl19ktzws0008d70gd6v78w2b" data-title="tools" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl19l122r0008ej0ghtqpbuz2" data-title="tools" class="article-share-link">Share</a>
       
       
       
@@ -506,7 +522,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl19ktzwh0005d70g29tvg72s" data-title="info-hexo" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl19l122g0005ej0g9g2k3qda" data-title="info-hexo" class="article-share-link">Share</a>
       
       
       
@@ -557,7 +573,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl19ktzwd0004d70g3md31wfk" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl19l122c0004ej0gezphfc77" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
