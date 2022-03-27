@@ -14,7 +14,7 @@
 <meta property="og:description" content="The purpose of this article is to show the practical way of analyzing IIS logs, and using those parsed results for analytical using. After installing the IIS Log Parser application, let’s assume in Wi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-27T17:31:41.000Z">
-<meta property="article:modified_time" content="2022-03-27T17:46:23.865Z">
+<meta property="article:modified_time" content="2022-03-27T17:50:05.427Z">
 <meta property="article:author" content="Yasen Zhao">
 <meta name="twitter:card" content="summary">
   
@@ -116,22 +116,22 @@
 </thead>
 <tbody><tr>
 <td>Number of Hits per Client IP, including a Reverse DNS Lookup (SLOW)</td>
-<td><code>SELECT c-ip AS Machine, REVERSEDNA(c-ip) As Name, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Machine ORDER BY Hits DESC</code></td>
+<td>&#96;&#96;&#96;</td>
 </tr>
 <tr>
-<td>Top 25 File Types</td>
-<td><code>SELECT TOP 25 EXTRACT_EXTENSION(cs-uri-stem) As Extension, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Extension ORDER BY Hits DESC</code></td>
-</tr>
-<tr>
-<td>Top 25 URLs</td>
-<td>&#96;SELECT TOP 25 cs-uri-stem as Url, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1* GROUP BY cs-uri-stem ORDER BY Hits DESC</td>
+<td>SELECT c-ip AS Machine, REVERSEDNA(c-ip) As Name, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1* GROUP BY Machine ORDER BY Hits DESC</td>
+<td></td>
 </tr>
 </tbody></table>
+<pre><code class="|">| Top 25 File Types | `SELECT TOP 25 EXTRACT_EXTENSION(cs-uri-stem) As Extension, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Extension ORDER BY Hits DESC` |
+| Top 25 URLs | `SELECT TOP 25 cs-uri-stem as Url, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY cs-uri-stem ORDER BY Hits DESC` |
+| Number of hits per hour for the month of March | `SELECT QUANTIZE(TO_LOCALTIME(TO_TIMESTAMP(date, time)), 3600) AS Hour, COUNT(*) AS Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE date&gt;&#39;2022-03-01&#39; and date&lt;&#39;2022-04-01&#39; GROUP BY Hour` |
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19kphsh0002c70g4klcfog3" data-title="IIS Log Parser" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19ktzw40002d70g62jb28s6" data-title="IIS Log Parser" class="article-share-link">Share</a>
       
       
       
