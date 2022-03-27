@@ -141,15 +141,28 @@
 <td><code>SELECT TOP 25 EXTRACT_VALUE(cs-uri-query,&#39;d&#39;) as Query_D, EXTRACT_VALUE(cs-uri-query,&#39;t&#39;) as Query_T, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE Query_D IS NOT NULL GROUP By Query_D, Query_T ORDER BY Hits DESC</code></td>
 </tr>
 <tr>
-<td>Fine the Slowest 25 URLs (in average) in the site</td>
+<td>Find the Slowest 25 URLs (in average) in the site</td>
 <td><code>SELECT TOP 25 cs-uri-stem as URL, MAX(time-taken) AS Max, MIN(time-taken) AS Min, Avg(time-taken) As Average FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY URL ORDER BY Average DESC</code></td>
 </tr>
+<tr>
+<td>List the count of each Status and Substatus code</td>
+<td><code>SELECT TOP 25 STRCAT(TO_STRING(sc-status), STRCAT(&#39;.&#39;, TO_STRING(sc-substatus))) As Status, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Status ORDER BY Status ASC</code></td>
+</tr>
+<tr>
+<td>List all the requests by user agent</td>
+<td><code>SELECT cs(User-Agent) As UserAgent, COUNT(*) as Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY UserAgent ORDER BY Hits DESC</code></td>
+</tr>
+<tr>
+<td>\ List all the Win32 Error codes that have been logged</td>
+<td><code>SELECT sc-win32-status As Win32-Status, WIN32_ERROR_DESCRIPTION(sc-win32-status) as Description, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Win32-Status ORDER BY Win32-Status ASC</code></td>
+</tr>
 </tbody></table>
+<p>Note: Any time you deal with Date and Time, remember to use the <code>TO_LOCALTIME</code> function to convert the log times to your local time, otherwise you will find it very confusing when your entries seems to be reported incorrectly.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19nnkbi0002jz0gej3d3jfq" data-title="IIS Log Parser" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19nv7fr0002le0g5wl6anyr" data-title="IIS Log Parser" class="article-share-link">Share</a>
       
       
       
@@ -191,7 +204,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/tool-youtube-dl/" data-id="cl19nnkdg0009jz0g04ayh8bw" data-title="tool_youtube-dl" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/tool-youtube-dl/" data-id="cl19nv7ho0009le0ga52sg4lg" data-title="tool_youtube-dl" class="article-share-link">Share</a>
       
       
       
@@ -229,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/good-sayings/" data-id="cl19nnkbm0003jz0g8xkz630n" data-title="good_sayings" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/good-sayings/" data-id="cl19nv7fv0003le0ghxxe22n9" data-title="good_sayings" class="article-share-link">Share</a>
       
       
       
@@ -287,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl19nnkbb0001jz0g568z2mwu" data-title="Git Usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl19nv7fk0001le0gdhki73i4" data-title="Git Usage" class="article-share-link">Share</a>
       
       
       
@@ -339,7 +352,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl19nnkao0000jz0g9exc8zu1" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl19nv7ew0000le0g53ab2l7a" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
       
       
       
@@ -377,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl19nnkby0006jz0g9v3u9pc4" data-title="powerapps usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl19nv7g70006le0g8sqk4o9s" data-title="powerapps usage" class="article-share-link">Share</a>
       
       
       
@@ -415,7 +428,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl19nnkc10007jz0ghwvz5mz6" data-title="powerbi-usage" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl19nv7ga0007le0ge2ml6x39" data-title="powerbi-usage" class="article-share-link">Share</a>
       
       
       
@@ -454,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl19nnkc50008jz0g80jtazt2" data-title="tools" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/20/tools/" data-id="cl19nv7ge0008le0g9jwnflvf" data-title="tools" class="article-share-link">Share</a>
       
       
       
@@ -526,7 +539,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl19nnkbu0005jz0g0dfpgeue" data-title="info-hexo" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/info-hexo/" data-id="cl19nv7g30005le0g193w4por" data-title="info-hexo" class="article-share-link">Share</a>
       
       
       
@@ -577,7 +590,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl19nnkbq0004jz0g3mod3yzs" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/19/hello-world/" data-id="cl19nv7fz0004le0g2m68cr15" data-title="Hello World" class="article-share-link">Share</a>
       
       
       

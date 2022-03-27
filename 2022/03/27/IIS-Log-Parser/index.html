@@ -14,7 +14,7 @@
 <meta property="og:description" content="The purpose of this article is to show the practical way of analyzing IIS logs, and using those parsed results for analytical using. After installing the IIS Log Parser application, let’s assume in Wi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-03-27T17:31:41.000Z">
-<meta property="article:modified_time" content="2022-03-27T17:57:38.962Z">
+<meta property="article:modified_time" content="2022-03-27T19:14:58.951Z">
 <meta property="article:author" content="Yasen Zhao">
 <meta name="twitter:card" content="summary">
   
@@ -143,15 +143,28 @@
 <td><code>SELECT TOP 25 EXTRACT_VALUE(cs-uri-query,&#39;d&#39;) as Query_D, EXTRACT_VALUE(cs-uri-query,&#39;t&#39;) as Query_T, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* WHERE Query_D IS NOT NULL GROUP By Query_D, Query_T ORDER BY Hits DESC</code></td>
 </tr>
 <tr>
-<td>Fine the Slowest 25 URLs (in average) in the site</td>
+<td>Find the Slowest 25 URLs (in average) in the site</td>
 <td><code>SELECT TOP 25 cs-uri-stem as URL, MAX(time-taken) AS Max, MIN(time-taken) AS Min, Avg(time-taken) As Average FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY URL ORDER BY Average DESC</code></td>
 </tr>
+<tr>
+<td>List the count of each Status and Substatus code</td>
+<td><code>SELECT TOP 25 STRCAT(TO_STRING(sc-status), STRCAT(&#39;.&#39;, TO_STRING(sc-substatus))) As Status, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Status ORDER BY Status ASC</code></td>
+</tr>
+<tr>
+<td>List all the requests by user agent</td>
+<td><code>SELECT cs(User-Agent) As UserAgent, COUNT(*) as Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY UserAgent ORDER BY Hits DESC</code></td>
+</tr>
+<tr>
+<td>\ List all the Win32 Error codes that have been logged</td>
+<td><code>SELECT sc-win32-status As Win32-Status, WIN32_ERROR_DESCRIPTION(sc-win32-status) as Description, COUNT(*) As Hits FROM c:\inetput\log\LogFiles\W3SVC1\* GROUP BY Win32-Status ORDER BY Win32-Status ASC</code></td>
+</tr>
 </tbody></table>
+<p>Note: Any time you deal with Date and Time, remember to use the <code>TO_LOCALTIME</code> function to convert the log times to your local time, otherwise you will find it very confusing when your entries seems to be reported incorrectly.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19nnkbi0002jz0gej3d3jfq" data-title="IIS Log Parser" class="article-share-link">Share</a>
+      <a data-url="https://yasenstar.github.io/2022/03/27/IIS-Log-Parser/" data-id="cl19nv7fr0002le0g5wl6anyr" data-title="IIS Log Parser" class="article-share-link">Share</a>
       
       
       
