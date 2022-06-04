@@ -75,6 +75,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mysite-day01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/04/mysite-day01/" class="article-date">
+  <time class="dt-published" datetime="2022-06-04T18:09:48.000Z" itemprop="datePublished">2022-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/04/mysite-day01/">mysite-day01</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>This is the starting point for building up mysite - Enterprise Architecture Center, following steps have been done.</p>
+<h2 id="Get-one-Domain"><a href="#Get-one-Domain" class="headerlink" title="Get one Domain"></a>Get one Domain</h2><p>Try <a target="_blank" rel="noopener" href="https://www.goddy.com/">godaddy.com</a> and request one domain there, mine is <strong>enterprise-architecture.site</strong>.</p>
+<p>Using the A-record, you can configure the DNS to link domain to your backend web server</p>
+<h2 id="Get-one-Server-for-Website"><a href="#Get-one-Server-for-Website" class="headerlink" title="Get one Server for Website"></a>Get one Server for Website</h2><p>Using Azure subscription, request one Ubuntu virtual server, get the basic configuration, with following two basic points –</p>
+<ul>
+<li>Before having https, open SSH (TCP&#x2F;22) allowing ANY inbound access</li>
+<li>Get one public IP address</li>
+</ul>
+<h2 id="Setup-Apache-Web-Server"><a href="#Setup-Apache-Web-Server" class="headerlink" title="Setup Apache Web Server"></a>Setup Apache Web Server</h2><p>SSH to your new Ubuntu server, using following commands to install web server</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apache2</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yasenstar.github.io/2022/06/04/mysite-day01/" data-id="cl4077jop00003f0gfmjugfxk" data-title="mysite-day01" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-beautiful-Chinese-translation" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/04/07/beautiful-Chinese-translation/" class="article-date">
@@ -538,44 +587,6 @@
 
 
   
-    <article id="post-powerbi-usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/20/powerbi-usage/" class="article-date">
-  <time class="dt-published" datetime="2022-03-21T01:17:24.000Z" itemprop="datePublished">2022-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/20/powerbi-usage/">powerbi-usage</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerbi-usage/" data-id="cl1qasfx5000asu0gg4t5d2kh" data-title="powerbi-usage" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -599,7 +610,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/04/">April 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
     </div>
   </div>
 
@@ -610,6 +621,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/06/04/mysite-day01/">mysite-day01</a>
+          </li>
         
           <li>
             <a href="/2022/04/07/beautiful-Chinese-translation/">beautiful Chinese translation</a>
@@ -625,10 +640,6 @@
         
           <li>
             <a href="/2022/03/27/IIS-Log-Parser/">IIS Log Parser</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/27/tool-youtube-dl/">tool_youtube-dl</a>
           </li>
         
       </ul>
