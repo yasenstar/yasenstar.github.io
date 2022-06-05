@@ -14,7 +14,7 @@
 <meta property="og:description" content="This is the starting point for building up mysite - Enterprise Architecture Center, following steps have been done. Get one DomainTry godaddy.com and request one domain there, mine is enterprise-archi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-04T18:09:48.000Z">
-<meta property="article:modified_time" content="2022-06-04T18:16:34.964Z">
+<meta property="article:modified_time" content="2022-06-05T14:19:49.442Z">
 <meta property="article:author" content="Yasen Zhao">
 <meta name="twitter:card" content="summary">
   
@@ -107,6 +107,17 @@
 <li>Before having https, open SSH (TCP&#x2F;22) allowing ANY inbound access</li>
 <li>Get one public IP address</li>
 </ul>
+<h3 id="Connect-via-SSH-with-Client"><a href="#Connect-via-SSH-with-Client" class="headerlink" title="Connect via SSH with Client"></a>Connect via SSH with Client</h3><ol>
+<li><p>Open the client of y our choice: WSL on Windows, Terminal on Mac or Shell on Linux</p>
+</li>
+<li><p>Ensure you have read-only access to the private key. <code>Chmod</code> is only supported on Linux subsystems (e.g. WSL on Windows or Terminal on Mac).</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 &lt;keyname&gt;.pem</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Provide a path to your SSH private key file, normally <code>~/.ssh/yasenster</code></p>
+</li>
+<li><p>Run the command below to connect your VM:<br><code>ssh -i &lt;private key path&gt; yasenstar@&lt;VM_IP&gt;</code></p>
+</li>
+</ol>
 <h2 id="Setup-Apache-Web-Server"><a href="#Setup-Apache-Web-Server" class="headerlink" title="Setup Apache Web Server"></a>Setup Apache Web Server</h2><p>SSH to your new Ubuntu server, using following commands to install web server</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apache2</span><br></pre></td></tr></table></figure>
 
@@ -123,6 +134,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2022/06/05/mysite-day02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mysite-day02
+        
+      </div>
+    </a>
   
   
     <a href="/2022/04/07/beautiful-Chinese-translation/" id="article-nav-older" class="article-nav-link-wrap">
@@ -165,6 +185,10 @@
       <ul>
         
           <li>
+            <a href="/2022/06/05/mysite-day02/">mysite-day02</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/04/mysite-day01/">mysite-day01</a>
           </li>
         
@@ -178,10 +202,6 @@
         
           <li>
             <a href="/2022/04/04/how-to-mount-iPhone-to-Linux/">how to mount iPhone to Linux</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/27/IIS-Log-Parser/">IIS Log Parser</a>
           </li>
         
       </ul>

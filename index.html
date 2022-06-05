@@ -75,6 +75,67 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-mysite-day02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/05/mysite-day02/" class="article-date">
+  <time class="dt-published" datetime="2022-06-05T14:13:48.000Z" itemprop="datePublished">2022-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/05/mysite-day02/">mysite-day02</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Setup-LAMP-Stack"><a href="#Setup-LAMP-Stack" class="headerlink" title="Setup LAMP Stack"></a>Setup LAMP Stack</h1><h2 id="Check-Apache"><a href="#Check-Apache" class="headerlink" title="Check Apache"></a>Check Apache</h2><h3 id="Check-location-of-Apache"><a href="#Check-location-of-Apache" class="headerlink" title="Check location of Apache:"></a>Check location of Apache:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">which apache2</span><br><span class="line">/usr/sbin/apache2</span><br></pre></td></tr></table></figure>
+
+<h3 id="Check-status-of-Apache-server"><a href="#Check-status-of-Apache-server" class="headerlink" title="Check status of Apache server:"></a>Check status of Apache server:</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service apache2 status</span><br></pre></td></tr></table></figure>
+
+<p>You  may get following result if the service is running properly:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">apache2.service - The Apache HTTP Server</span><br><span class="line">   Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor preset: enabled&gt;)</span><br><span class="line">   Active: active (running) since &lt;timestamp&gt;; xxmin ago</span><br><span class="line">   Docs: https://httpd.apache.org/docs/2.4/</span><br><span class="line">   Process: 698 ExecStart=/usr/sbin/apachectl start (code=exited, status=0/SUCCESS)</span><br><span class="line">   Main PID: 836 (apache2)</span><br><span class="line">   Tasks: 55 (limit: 2289)</span><br><span class="line">   Memory: 12.1M</span><br><span class="line">   CGroup: /system.slice/apache2.service</span><br><span class="line">           |-836 /usr/sbin/apache2 -k start</span><br><span class="line">           |-846 /usr/sbin/apache2 -k start</span><br><span class="line">           |-847 /usr/sbin/apache2 -k start</span><br><span class="line">           </span><br><span class="line">Jun 05 14:04:34 xiaoqi-web-002 systemd[1]: Starting The Apache HTTP Server...</span><br><span class="line">Jun 05 14:04:35 xiaoqi-web-002 systemd[1]: Started The Apache HTTP Server.</span><br></pre></td></tr></table></figure>
+
+<h3 id="Start-Apache-Server-if-it’s-deactive"><a href="#Start-Apache-Server-if-it’s-deactive" class="headerlink" title="Start Apache Server if it’s deactive"></a>Start Apache Server if it’s deactive</h3><p><code>sudo service apache2 start</code></p>
+<h3 id="Check-Hosts-File"><a href="#Check-Hosts-File" class="headerlink" title="Check Hosts File"></a>Check Hosts File</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">more /etc/hosts</span><br><span class="line">===============</span><br><span class="line">127.0.0.1 localhost</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>Noted: the apache website files are located in <code>/var/www/html/index.html</code></p>
+<h3 id="Edit-index-php"><a href="#Edit-index-php" class="headerlink" title="Edit index.php"></a>Edit index.php</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch /var/www/html/index.php</span><br></pre></td></tr></table></figure>
+
+<p>Type below content:</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">echo</span> <span class="title function_ invoke__">phpinfo</span>();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>You can remove the original <code>index.html</code>, then the default website will show the PHP page, if now, you need to install the PHP first.</p>
+<h2 id="Install-PHP"><a href="#Install-PHP" class="headerlink" title="Install PHP"></a>Install PHP</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">php -v</span><br><span class="line"># if not installed, please do below</span><br><span class="line">sudo apt-get install php7.4</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-MySQL"><a href="#Install-MySQL" class="headerlink" title="Install MySQL"></a>Install MySQL</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br><span class="line">systemctl status mysql.service</span><br></pre></td></tr></table></figure>
+
+<p>With GUI, you can install DBeaver to manage the MySQL database</p>
+<p>Information: <a target="_blank" rel="noopener" href="https://github.com/Alecaddd/virtualhost">https://github.com/Alecaddd/virtualhost</a> to get the automatic script for install&#x2F;delete Apache sites.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yasenstar.github.io/2022/06/05/mysite-day02/" data-id="cl41o7mkx00006d0g0av421bn" data-title="mysite-day02" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-mysite-day01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/06/04/mysite-day01/" class="article-date">
@@ -105,6 +166,17 @@
 <li>Before having https, open SSH (TCP&#x2F;22) allowing ANY inbound access</li>
 <li>Get one public IP address</li>
 </ul>
+<h3 id="Connect-via-SSH-with-Client"><a href="#Connect-via-SSH-with-Client" class="headerlink" title="Connect via SSH with Client"></a>Connect via SSH with Client</h3><ol>
+<li><p>Open the client of y our choice: WSL on Windows, Terminal on Mac or Shell on Linux</p>
+</li>
+<li><p>Ensure you have read-only access to the private key. <code>Chmod</code> is only supported on Linux subsystems (e.g. WSL on Windows or Terminal on Mac).</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 &lt;keyname&gt;.pem</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Provide a path to your SSH private key file, normally <code>~/.ssh/yasenster</code></p>
+</li>
+<li><p>Run the command below to connect your VM:<br><code>ssh -i &lt;private key path&gt; yasenstar@&lt;VM_IP&gt;</code></p>
+</li>
+</ol>
 <h2 id="Setup-Apache-Web-Server"><a href="#Setup-Apache-Web-Server" class="headerlink" title="Setup Apache Web Server"></a>Setup Apache Web Server</h2><p>SSH to your new Ubuntu server, using following commands to install web server</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install apache2</span><br></pre></td></tr></table></figure>
 
@@ -549,44 +621,6 @@
 
 
   
-    <article id="post-powerapps-usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/20/powerapps-usage/" class="article-date">
-  <time class="dt-published" datetime="2022-03-21T01:37:39.000Z" itemprop="datePublished">2022-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/20/powerapps-usage/">powerapps usage</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/powerapps-usage/" data-id="cl1qasfx40009su0gfet9a46i" data-title="powerapps usage" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -623,6 +657,10 @@
       <ul>
         
           <li>
+            <a href="/2022/06/05/mysite-day02/">mysite-day02</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/04/mysite-day01/">mysite-day01</a>
           </li>
         
@@ -636,10 +674,6 @@
         
           <li>
             <a href="/2022/04/04/how-to-mount-iPhone-to-Linux/">how to mount iPhone to Linux</a>
-          </li>
-        
-          <li>
-            <a href="/2022/03/27/IIS-Log-Parser/">IIS Log Parser</a>
           </li>
         
       </ul>
