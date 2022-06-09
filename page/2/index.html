@@ -75,6 +75,58 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Azure-DevOps-Usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/20/Azure-DevOps-Usage/" class="article-date">
+  <time class="dt-published" datetime="2022-03-21T01:38:21.000Z" itemprop="datePublished">2022-03-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/20/Azure-DevOps-Usage/">Azure DevOps Usage - Get query ID</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Whether you create a new query, or use an existing one, you will need to obtain the GUID for this query so that it can be used from inside the Power BI query or Power Apps Canvas.</p>
+<p>This can be retrieved from the ADO API by executing the following request in a browser, or HTTP Client (e.g. Postman):</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://[instance-name].visualstudio.com/DefaultCollection/[project-name]/_apis/wit/queries/[path-to-query]</span><br></pre></td></tr></table></figure>
+
+<p>Where:</p>
+<ul>
+<li>[instance-name] is the ADO instance name, or Organization name</li>
+<li>[project-name] is the AOD project name</li>
+<li>[path-to-query] is the path to the query e.g. “Shared Queries&#x2F;Current Sprint&#x2F;Product Backlog”</li>
+</ul>
+<p>e.g.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://endjin.visualstudio.com/DefaultCollection/PowerBI/_apis/wit/queries/Shared Queries/Current Sprint/Product Backlog/</span><br></pre></td></tr></table></figure>
+
+<p>The response will be in a format which the first “id” value is the GUID you can use.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl1qasfwo0000su0g0zpjfa8r" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-powerapps-usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/03/20/powerapps-usage/" class="article-date">
@@ -353,6 +405,10 @@
       <ul>
         
           <li>
+            <a href="/2022/06/09/data-catalog-3/">data-catalog-3</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/05/mysite-day02/">mysite-day02</a>
           </li>
         
@@ -366,10 +422,6 @@
         
           <li>
             <a href="/2022/04/04/convert-heic-photos-to-jpg/">convert heic photos to jpg</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/04/how-to-mount-iPhone-to-Linux/">how to mount iPhone to Linux</a>
           </li>
         
       </ul>

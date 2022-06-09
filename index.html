@@ -75,6 +75,55 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-data-catalog-3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/09/data-catalog-3/" class="article-date">
+  <time class="dt-published" datetime="2022-06-09T17:45:42.000Z" itemprop="datePublished">2022-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/06/09/data-catalog-3/">data-catalog-3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Data-Catalog-3-0-Requirements"><a href="#Data-Catalog-3-0-Requirements" class="headerlink" title="Data Catalog 3.0 Requirements"></a>Data Catalog 3.0 Requirements</h1><p>A <strong>correctly</strong> implemented data catalog will provide:</p>
+<ul>
+<li><strong>Intuitive UI</strong> clean and easy to navigate to consume and search for data</li>
+<li><strong>Visual Query Builder</strong> ability to share queries with other users</li>
+<li><strong>Ability to Share data</strong> internally &amp; externally</li>
+<li><strong>Collaboration</strong> update business context &amp; data dictionary (driven by end users to promote continuous improvements)</li>
+<li><strong>Ability to Integrate</strong> with other apps, APIs, etc</li>
+<li><strong>Security</strong> user roles and groups to ensure proper permissions</li>
+<li><strong>Embedded Data Lineage &amp; Data Dictionary</strong></li>
+<li><strong>Ease of Governance &#x2F; Administration</strong></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yasenstar.github.io/2022/06/09/data-catalog-3/" data-id="cl47bf3tc0000iy0georxf1a5" data-title="data-catalog-3" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-mysite-day02" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/06/05/mysite-day02/" class="article-date">
@@ -569,58 +618,6 @@
 
 
   
-    <article id="post-Azure-DevOps-Usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/03/20/Azure-DevOps-Usage/" class="article-date">
-  <time class="dt-published" datetime="2022-03-21T01:38:21.000Z" itemprop="datePublished">2022-03-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/03/20/Azure-DevOps-Usage/">Azure DevOps Usage - Get query ID</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Whether you create a new query, or use an existing one, you will need to obtain the GUID for this query so that it can be used from inside the Power BI query or Power Apps Canvas.</p>
-<p>This can be retrieved from the ADO API by executing the following request in a browser, or HTTP Client (e.g. Postman):</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://[instance-name].visualstudio.com/DefaultCollection/[project-name]/_apis/wit/queries/[path-to-query]</span><br></pre></td></tr></table></figure>
-
-<p>Where:</p>
-<ul>
-<li>[instance-name] is the ADO instance name, or Organization name</li>
-<li>[project-name] is the AOD project name</li>
-<li>[path-to-query] is the path to the query e.g. “Shared Queries&#x2F;Current Sprint&#x2F;Product Backlog”</li>
-</ul>
-<p>e.g.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://endjin.visualstudio.com/DefaultCollection/PowerBI/_apis/wit/queries/Shared Queries/Current Sprint/Product Backlog/</span><br></pre></td></tr></table></figure>
-
-<p>The response will be in a format which the first “id” value is the GUID you can use.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://yasenstar.github.io/2022/03/20/Azure-DevOps-Usage/" data-id="cl1qasfwo0000su0g0zpjfa8r" data-title="Azure DevOps Usage - Get query ID" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -657,6 +654,10 @@
       <ul>
         
           <li>
+            <a href="/2022/06/09/data-catalog-3/">data-catalog-3</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/05/mysite-day02/">mysite-day02</a>
           </li>
         
@@ -670,10 +671,6 @@
         
           <li>
             <a href="/2022/04/04/convert-heic-photos-to-jpg/">convert heic photos to jpg</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/04/how-to-mount-iPhone-to-Linux/">how to mount iPhone to Linux</a>
           </li>
         
       </ul>
