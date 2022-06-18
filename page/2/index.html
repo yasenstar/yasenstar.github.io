@@ -75,6 +75,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Git-Usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/21/Git-Usage/" class="article-date">
+  <time class="dt-published" datetime="2022-03-22T00:11:22.000Z" itemprop="datePublished">2022-03-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/03/21/Git-Usage/">Git Usage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Export-GIT-LOG-into-an-CSV-File"><a href="#Export-GIT-LOG-into-an-CSV-File" class="headerlink" title="Export GIT LOG into an CSV File"></a>Export GIT LOG into an CSV File</h2><p>Go to your GIT repo folder –</p>
+<p>In Linux, run </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline | tr &quot;\r&quot; &quot; &gt; ~/gitlog.csv</span><br></pre></td></tr></table></figure>
+
+<p>In Windows, run </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --oneline &gt; c:/temp/gitlog.csv</span><br></pre></td></tr></table></figure>
+
+<p>GIT also gives your the control on how to format the log output using <code>pretty</code> option, like below:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --pretty=format:%h,%an,%ae,%ad,%s</span><br></pre></td></tr></table></figure>
+
+<p>Note: <code>--pretty</code> and <code>--oneline</code> cannot be used at the same time.</p>
+<p>This prints the log in the format of (hash [abbreviated], author name, author email, author date, subject)</p>
+<p>To see the full list of format options: <code>git help log</code></p>
+<p>Some more samples:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --no-merges --since=&#x27;mm-dd-yyyy&#x27; --pretty=format:%h,%an,%ae,%ad,%s &gt; c:\dev\history.csv</span><br></pre></td></tr></table></figure>
+
+<p>You can also quote the values directly in the format - </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --pretty=format:&#x27;&quot;%h&quot;,&quot;%an&quot;,&quot;%ae&quot;,&quot;%ad&quot;,&quot;%s&quot;&#x27; --date=iso-strict</span><br></pre></td></tr></table></figure>
+
+<p>so it’s clear when there’re commas in the memo</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yasenstar.github.io/2022/03/21/Git-Usage/" data-id="cl1qasfwv0001su0gfgvp37hv" data-title="Git Usage" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Azure-DevOps-Usage" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/03/20/Azure-DevOps-Usage/" class="article-date">
@@ -405,6 +463,10 @@
       <ul>
         
           <li>
+            <a href="/2022/06/18/Install-VS-Codium-on-Ubuntu/">Install VS Codium on Ubuntu</a>
+          </li>
+        
+          <li>
             <a href="/2022/06/09/data-catalog-3/">data-catalog-3</a>
           </li>
         
@@ -418,10 +480,6 @@
         
           <li>
             <a href="/2022/04/07/beautiful-Chinese-translation/">beautiful Chinese translation</a>
-          </li>
-        
-          <li>
-            <a href="/2022/04/04/convert-heic-photos-to-jpg/">convert heic photos to jpg</a>
           </li>
         
       </ul>
